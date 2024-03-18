@@ -1,0 +1,24 @@
+﻿@model BookStore.Models.Purchase
+    @{ 
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    <div>
+        <h3>Форма для оформления покупки</h3>
+
+        <form method="post" action="">
+            <input type="hidden" value="@ViewBag.BookId" name="BookId" />
+            <table>
+                <tr>
+                    <td>Введите имя:</td>
+                    <td><input type="text" name="Person" placeholder="Введите имя" /></td>
+                </tr>
+                <tr>
+                    <td>Введите адрес:</td>
+                    <td><input type="text" name="Address" placeholder="Введите адрес" /> </td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Отправить" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>

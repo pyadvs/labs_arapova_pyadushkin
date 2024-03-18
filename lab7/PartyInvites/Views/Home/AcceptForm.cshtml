@@ -1,0 +1,32 @@
+﻿
+@model PartyInvites.Models.GuestResponse
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AcceptForm</title>
+    <link rel="stylesheet" type="text/css" href="~\wwwroot\css\site.css" />
+</head>
+<body>
+    <@using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+
+    <p>Ваше имя: @Html.TextBoxFor(x => x.Name)</p> //Поле для ввода имени
+    <p>Ваше email: @Html.TextBoxFor(x => x.Email)</p> //Поле для ввода email
+    <p>Ваше номер: @Html.TextBoxFor(x => x.Phone)</p> //Поле для ввода номера
+    <p>Ваш возраст: @Html.TextBoxFor(x => x.Age)</p> //Поле для ввода возраста
+    <p>
+        Вы с нами?
+            @Html.DropDownListFor(x => x.WillAttend, new[] { //Выпадающий список для указания присутствия
+        new SelectListItem() {Text = "Да, я приду!", Value = bool.TrueString}, //Опция "Да"
+        new SelectListItem() {Text = "Нет, не смогу", Value = bool.FalseString} //Опция "Нет"
+        }, "Выберите опцию...")
+        })
+    </p>
+    <input type="submit" value="Отправить" /> //Кнопка отправки формы
+    }
+</body>
+</html>
